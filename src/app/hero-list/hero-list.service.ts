@@ -1,8 +1,11 @@
 import {Injectable, OnInit} from '@angular/core';
-import {Hero} from './heroes.model';
+import {Hero} from './hero-list.model';
+import {Observable} from 'rxjs/Observable';
+import {of} from 'rxjs/observable/of';
+
 
 export interface IHeroesService {
-  getHeroes(): Hero[];
+  getHeroes(): Observable<Hero[]>;
 }
 
 @Injectable()
@@ -13,8 +16,8 @@ export class HeroesService  implements OnInit, IHeroesService {
   ngOnInit(): void {
   }
 
-  getHeroes(): Hero[] {
-    return [
+  getHeroes(): Observable<Hero[]> {
+    return of([
       new Hero(11, 'Mr. Nice'),
       new Hero(12, 'Narco'),
       new Hero( 13, 'Bombasto'),
@@ -25,7 +28,7 @@ export class HeroesService  implements OnInit, IHeroesService {
       new Hero( 18, 'Dr IQ' ),
       new Hero( 19, 'Magma' ),
       new Hero( 20, 'Tornado' )
-    ];
+    ]);
   }
   //#endregion
 }
