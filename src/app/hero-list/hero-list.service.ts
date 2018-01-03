@@ -2,6 +2,7 @@ import {Injectable, OnInit} from '@angular/core';
 import {Hero} from './hero-list.model';
 import {Observable} from 'rxjs/Observable';
 import {of} from 'rxjs/observable/of';
+import {MessageService} from '../messages/message.service';
 
 
 export interface IHeroesService {
@@ -11,12 +12,13 @@ export interface IHeroesService {
 @Injectable()
 export class HeroesService  implements OnInit, IHeroesService {
   //#region behavior
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
 
   getHeroes(): Observable<Hero[]> {
+    this.messageService.add('Hero service: fetched heroes');
     return of([
       new Hero(11, 'Mr. Nice'),
       new Hero(12, 'Narco'),

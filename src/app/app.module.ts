@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import {HeroListComponent} from './hero-list/hero-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './messages/message.service';
 
 
 
@@ -13,13 +15,14 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
   declarations: [
     AppComponent,
     HeroListComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
