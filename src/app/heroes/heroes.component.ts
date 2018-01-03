@@ -1,23 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import {Hero} from './heroes.model';
+import {HeroesService} from './heroes.service';
 
 @Component({
   moduleId: module.id,
   selector: 'app-heroes',
   templateUrl: 'heroes.component.html',
-  styleUrls: ['heroes.component.css']
+  styleUrls: ['heroes.component.css'],
+  providers: [ HeroesService ]
 })
 export class HeroesComponent implements OnInit {
 
   //#region state
-  public hero: Hero
+  public selectedHero: Hero;
+  public heroes: Hero[];
   //#endregion
 
   //#region behavior
-  constructor() { }
+  constructor(private heroesService: HeroesService) {
+    this.heroes = heroesService.getHeroes();
+  }
 
   ngOnInit() {
-    this.hero = new Hero(1, 'Windstorm');
+    this.selectedHero = new Hero(1, 'Windstorm');
+  }
+
+  public onSelect(hero: Hero): void {
+    this.selectedHero = hero;
   }
   //#endregion
 }
