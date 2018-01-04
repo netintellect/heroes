@@ -22,7 +22,7 @@ const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"
 const minimizeCss = false;
 const baseHref = "";
 const deployUrl = "";
-const projectRoot = "C:\\Transit\\Learning\\ng\\heroes";
+const projectRoot = "C:\\Transit\\Learning\\ng\\hero-list";
 const postcssPlugins = function () {
         // safe settings based on: https://github.com/ben-eb/cssnano/issues/358#issuecomment-283696193
         const importantCommentRe = /@preserve|@licen[cs]e|[@#]\s*source(?:Mapping)?URL|^!/i;
@@ -410,7 +410,7 @@ module.exports = {
       "exclude": /(\\|\/)node_modules(\\|\/)/,
       "failOnError": false,
       "onDetected": false,
-      "cwd": "C:\\Transit\\Learning\\ng\\heroes"
+      "cwd": "C:\\Transit\\Learning\\ng\\hero-list"
     }),
     new NamedLazyChunksWebpackPlugin(),
     new HtmlWebpackPlugin({
