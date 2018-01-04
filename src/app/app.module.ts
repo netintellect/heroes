@@ -8,6 +8,9 @@ import {HeroListComponent} from './hero-list/hero-list.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './messages/message.service';
+import { AppRoutingModule } from './/app-routing.module';
+import {RouterModule} from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -16,11 +19,13 @@ import { MessageService } from './messages/message.service';
     AppComponent,
     HeroListComponent,
     HeroDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
