@@ -31,5 +31,21 @@ export class HeroListComponent implements OnInit {
   public onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
+
+  public add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroesService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+  public delete(hero: Hero): void {
+    this.heroesService.delete(hero)
+      .subscribe(() => {
+        this.heroes = this.heroes.filter((h) => h !== hero);
+      });
+  }
   //#endregion
 }
