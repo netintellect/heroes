@@ -6,6 +6,16 @@
       <input [(ngModel)]="hero.name" placeholder="name">
     </label>
   </div>
-  <button kendoButton (click)="goBack()"
-          [primary]="true">go back</button>
+  <div class="row">
+    <button class="col-lg-1"
+            kendoButton (click)="save()"
+            [primary]="true">
+      save
+    </button>
+    <button class="right"
+            kendoButton (click)="goBack()"
+            [primary]="false">
+      go back
+    </button>
+  </div>
 </div>
